@@ -2,47 +2,26 @@
 
 Console.WriteLine(greeting);
 
-int secretNumber = 42;
+Random random = new Random();
+int secretNumber = random.Next(1, 100);
+int maxAttempts = 4;
 
-Console.WriteLine("Guess a number: ");
-int response = int.Parse(Console.ReadLine());
+for (int attempt = 1; attempt <= maxAttempts; attempt++)
+{
+    Console.WriteLine($"Your guess ({attempt})");
+    int response = int.Parse(Console.ReadLine());
 
-if (response == secretNumber)
-{
-    Console.WriteLine("You guessed the correct number! Congratulations!");
-}
-else
-{
-    Console.WriteLine("Incorrect response. Try again!");
-    int response2 = int.Parse(Console.ReadLine());
-    if (response2 == secretNumber)
+    if (response == secretNumber)
     {
-        Console.WriteLine("You guessed the correct number! Congratulations!");
+        Console.WriteLine("You guessed the correct number!");
+        break;
     }
     else
     {
-        Console.WriteLine("Incorrect response. Try again!");
-        int response3 = int.Parse(Console.ReadLine());
-        if (response3 == secretNumber)
-        {
-            Console.WriteLine("You guessed the correct number! Congratulations!");
-        }
-        else
-        {
-            Console.WriteLine("Incorrect response. Try again!");
-            int response4 = int.Parse(Console.ReadLine());
-            if (response4 == secretNumber)
-            {
-                Console.WriteLine("You guessed the correct number! Congratulations!");
-            }
-            else
-            {
-                Console.WriteLine("Incorrect response. Try again!");
-            }
-        }
+        Console.WriteLine("Incorrect response. Try again.");
     }
-    ;
 }
+Console.WriteLine("Game over!");
 
 
 
